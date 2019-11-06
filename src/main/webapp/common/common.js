@@ -7,6 +7,7 @@ var token=localStorage.getItem("token");
 function codeSelect(elementid, codetype) {
 
     var params = {
+        token: token,
         codetype: codetype
     }
 
@@ -327,5 +328,149 @@ $.ajaxSetup({
     }
 });
 
+/*
+ ------------下拉树start----------
+ */
+/*获取所有子节点*/
+function getChildNodeIdArr(node) {
+    var ts = [];
+    if (node.nodes) {
+        for (x in node.nodes) {
+            ts.push(node.nodes[x].nodeId);
+            if (node.nodes[x].nodes) {
+                var getNodeDieDai = getChildNodeIdArr(node.nodes[x]);
+                for (j in getNodeDieDai) {
+                    ts.push(getNodeDieDai[j]);
+                }
+            }
+        }
+    } else {
+        ts.push(node.nodeId);
+    }
+    return ts;
+}
 
+/* 如果选中一个子节点，则选中其父节点 */
+function setParentNodeChecked(node,treeElementId) {
+    var parentNode = $('#'+treeElementId).treeview("getNode", node.parentId);
+    if (node.parentId) {//如果本次所选中的节点有父节点，就递归
+        $('#'+treeElementId).treeview("checkNode", [parentNode, {silent: true}]);
+        setParentNodeChecked(parentNode,treeElementId);
+    }
+}
+
+/*选中父节点，则选中所有子节点*/
+function setChildNodeChecked(node,treeElementId) {
+    var nodes = node.nodes;
+    //先選中自己
+    $('#'+treeElementId).treeview("checkNode", [node, {silent: true}]);
+
+    if (nodes) {
+        len = nodes.length;
+        for (i = 0; i < len; i++) {
+            var cnode = $('#'+treeElementId).treeview("getNode", nodes[i].nodeId);
+            $('#'+treeElementId).treeview("checkNode", [cnode, {silent: true}]);
+        }
+        for (i = 0; i < len; i++) {
+            var cnode = $('#'+treeElementId).treeview("getNode", nodes[i].nodeId);
+            if (cnode.nodes)
+                setChildNodeChecked(cnode,treeElementId);
+        }
+    }
+}
+
+/*初始化下拉树控件
+* @Param: {searchUrl:"", treeElementId: "", nameElementId: "", valueElementId: ""}
+*/
+function initSelectTree(params) {
+    var searchUrl = params.searchUrl;//查询请求路径
+    var treeElementId = params.treeElementId;//树元素的id
+    var nameElementId = params.nameElementId;//显示元素的id
+    var valueElementId = params.valueElementId;//隐藏元素的id，传值用的
+
+    $(function(){
+        $("html").bind("mousedown", params,onBodyDown);//可将点击的页面传入onBodyDown方法
+    });
+    $.ajax({
+        url: searchUrl,
+        type: "GET",
+        dataType: "json",
+        data: {token: token},
+        success: function (returndata) {
+            // console.log(returndata);
+            // $menutreedata = returndata;
+            $('#'+treeElementId).treeview({
+                data: returndata,
+                showIcon: false,
+                showCheckbox: true,
+                selectable: true,
+                showBorder: true,
+                highlightSelected: false,
+                levels: 1,
+                multiSelect: true,
+                onNodeChecked: function (event, node) {
+                    setChildNodeChecked(node,treeElementId);//选中父节点，则选中所有子节点
+                    setParentNodeChecked(node,treeElementId);//如果选中一个子节点，则选中其父节点
+
+                    setValueToInput(params);
+                },
+                onNodeUnchecked: function (event, node) {
+                    var selectNodes = getChildNodeIdArr(node); //获取所有子节点
+                    if (selectNodes) { //子节点不为空，则取消选中所有子节点
+                        $('#'+treeElementId).treeview('uncheckNode', [selectNodes, {silent: true}]);
+                    }
+                    setValueToInput(params);
+                },
+
+                onNodeExpanded: function (event, data) {
+
+                },
+
+                onNodeSelected: function (event, data) {
+
+                }
+            })
+        },
+        error: function () {
+            /*            var err = "没有数据";
+                        alert(err);*/
+        }
+    })
+
+
+}
+//给显示框和传值框赋值
+function setValueToInput(params) {
+    var treeElementId = params.treeElementId;//树元素的id
+    var nameElementId = params.nameElementId;//显示元素的id
+    var valueElementId = params.valueElementId;//隐藏元素的id，传值用的
+
+    var checked = $("#"+treeElementId).treeview("getChecked");
+    var values = [];
+    var names = [];
+    var len = checked.length;
+
+    for (j = 0; j < len; j++) {
+        values.push(checked[j].nodeid);
+        names.push(checked[j].text);
+    }
+    var namesStr=getTextByJs(names);
+
+    $('#' + nameElementId).val(namesStr);
+    $('#' + valueElementId).val(JSON.stringify(values));
+}
+
+function onBodyDown(event) {
+    var treeElementId = event.data.treeElementId;//树元素的id
+    var nameElementId = event.data.nameElementId;//显示元素的id
+    //如果点击的不是下拉树形的内容，就隐藏树形下拉
+    if(!(event.target.id == treeElementId
+        ||event.target.id == nameElementId
+        ||$(event.target).parents("#"+treeElementId).length > 0)){
+        $("#"+treeElementId).hide();
+    }
+}
+/*
+-------------------------下拉树end-----------------------
+ */
 
