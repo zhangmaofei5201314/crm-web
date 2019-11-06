@@ -375,6 +375,7 @@ function queryuserlist() {
 
     var usercode = $("#usercode").val();
     var params = {
+        token: token,
         usercode: usercode
     }
 

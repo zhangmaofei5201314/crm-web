@@ -89,6 +89,7 @@ function roledetail(roleid) {
         type: "GET",
         dateType : "json",
         data: {
+            token: token,
             roleid : roleid
         },
 
@@ -143,6 +144,7 @@ function roleedit(roleid) {
         type: "GET",
         dateType : "json",
         data: {
+            token: token,
             roleid : roleid
         },
 
@@ -203,6 +205,7 @@ function roledeleteCallback(roleid) {
         type: "POST",
         dataType: "json",
         data: {
+            token: token,
             roleid : roleid
         },
 
@@ -235,6 +238,7 @@ function queryrolelist() {
     var rolename = $("#rolename").val();
     var makedate = $("#makedate").val();
     var params = {
+        token: token,
         roleid: roleid,
         rolename: rolename,
         makedate: makedate
@@ -266,8 +270,9 @@ function queryrolelist() {
 
 菜单树的处理 by wangran
 ---------------------------begin------------------------------------------*/
+/*
 
-/*获取所有子节点*/
+/!*获取所有子节点*!/
 function getChildNodeIdArr(node) {
     var ts = [];
     if (node.nodes) {
@@ -286,7 +291,7 @@ function getChildNodeIdArr(node) {
     return ts;
 }
 
-/* 如果选中一个子节点，则选中其父节点 */
+/!* 如果选中一个子节点，则选中其父节点 *!/
 function setParentNodeChecked(node) {
     var parentNode = $("#menutree").treeview("getNode", node.parentId);
     if (parentNode) {
@@ -295,10 +300,10 @@ function setParentNodeChecked(node) {
     }
 }
 
-/*选中父节点，则选中所有子节点*/
+/!*选中父节点，则选中所有子节点*!/
 function setChildNodeChecked(node) {
     var nodes = node.nodes;
-
+    console.log(node);
     //先選中自己
     $("#menutree").treeview("checkNode", [node, {silent: true}]);
 
@@ -316,14 +321,23 @@ function setChildNodeChecked(node) {
     }
 }
 
-/*初始化菜单控件*/
+/!*初始化菜单控件*!/
 function initMenuTree() {
+    var otherData={
+        elementid: "qwer",
+        elementid2: "1234"
+    }
 
+    $(function(){
+        $("html").bind("mousedown", otherData,onBodyDown);//可将点击的页面传入onBodyDown方法
+    });
     $.ajax({
         url: systemPath + "/controller/menutree",
         type: "GET",
         dataType: "json",
+        data: {token: token},
         success: function (returndata) {
+            // console.log(returndata);
             $menutreedata = returndata;
             $('#menutree').treeview({
                 data: returndata,
@@ -333,6 +347,7 @@ function initMenuTree() {
                 showBorder: true,
                 highlightSelected: false,
                 levels: 1,
+                multiSelect: true,
                 onNodeChecked: function (event, node) {
                     setChildNodeChecked(node);
                     setParentNodeChecked(node);
@@ -354,14 +369,22 @@ function initMenuTree() {
             })
         },
         error: function () {
-            /*            var err = "没有数据";
-                        alert(err);*/
+            /!*            var err = "没有数据";
+                        alert(err);*!/
         }
     })
 
 
 }
-
+function onBodyDown(event) {
+    console.log(event.data);
+    if(!(event.target.id == "menutreeValue"
+        ||event.target.id == "menutree"
+        ||$(event.target).parents("#menutree").length > 0)){
+        $("#menutree").hide();
+    }
+}
+*/
 
 /*
 菜单树的处理 by wangran
@@ -449,6 +472,7 @@ function saverole() {
             });
         }
     });
+
 }
 
 
@@ -475,11 +499,15 @@ $(function(){
 
     //初始化菜单树
     // initMenuTree();
-
+    initSelectTree({searchUrl:systemPath + "/controller/menutree",
+                           treeElementId: "menutree",
+                           nameElementId: "menutreeName",
+                           valueElementId: "menutreeValue"});
     //查询按钮动作，填充table
     $("#queryrole").click(function () {
         queryrolelist();
     });
+
 
     //点击新增模态框时，清空所有输入框以及菜单树
     $("#addrole").click(function () {

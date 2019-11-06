@@ -182,7 +182,9 @@
                                                     <div class="col-md-10 ">
                                                         <label class="col-sm-4 control-label">角色菜单</label>
                                                         <div class="col-sm-7">
-                                                            <div id="menutree" class="treeview">
+                                                            <input type="hidden" id="menutreeValue" name="menutreeValue">
+                                                            <input id="menutreeName" name="menutreeName" type="text" class="form-control" onclick="$('#menutree').show()">
+                                                            <div id="menutree" style="display: none;min-width:85%;max-height:200px;overflow:visible;white-space:nowrap; position: absolute;z-index:9999">
                                                             </div>
                                                         </div>
                                                     </div>
