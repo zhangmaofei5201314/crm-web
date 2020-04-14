@@ -1,0 +1,600 @@
+/**
+ * Created by hubo on 15/11/12.
+ * Copyright XXFW department */
+body {
+    font-family: Microsoft YaHei !important;
+    /*color: #242a30*/
+    color: #4F4F4F;
+    background-color: #d9e0e7 !important;
+}
+
+.row {
+    margin: 0 -5px;
+}
+
+.row > [class*=col-] {
+    padding: 0 5px;
+}
+
+.content { /*内容框架的起始高度*/
+    padding: 0px 5px;
+}
+
+.lis-modal { /*内容框架的起始高度*/
+    padding: 5px 5px;
+    margin-left: 0px;
+}
+
+.panel { /*panel的下面留白*/
+    margin-bottom: 5px;
+}
+.panel-heading {
+    /*padding: 5px 10px;*/
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 12px;
+}
+.panel-body { /*panel-body的留白*/
+    padding: 6px 15px;
+    /*padding-top: 5px;*/
+    /*padding-bottom: 10px;*/
+    /*padding-left: 15px;*/
+    /*padding-right: 15px;*/
+}
+.panel-footer {
+    padding: 6px 15px;
+    /*padding-top: 5px;*/
+    /*padding-bottom: 10px;*/
+    /*padding-left: 15px;*/
+    /*padding-right: 15px;*/
+}
+.panel-footer:after, .panel-footer:before { /* 解决panel-footer 与 float 的错位问题*/
+    display: table;
+    content: " "
+}
+.panel-footer:after {
+    clear: both
+}
+.panel-heading-btn > a {
+    margin-left: -3px;
+    margin-top: -2px;
+}
+
+.btn-lis { /*调整button的高度和input一致*/
+    padding: 3px 0px !important;
+    width: 94px !important;
+    margin-top: 1px;
+    font-size: 12px;
+    height: 26px;
+}
+
+.ui-grid {
+    margin-bottom: 3px;
+}
+.ui-grid-cell-contents { /*表头高度*/
+    padding: 4px;
+}
+.ui-grid-pager-control button { /*导航条按钮高度*/
+    height: 24px;
+}
+.ui-grid-pager-control input { /*导航条页数高度*/
+    height: 24px;
+    padding: 3px 10px;
+}
+.ui-grid-pager-row-count-picker select { /*导航条分页高度*/
+    height: 24px;
+    padding: 2px 10px;
+}
+
+/*内容页起始高度*/
+.page-header-fixed {
+    padding-top: 41px;
+}
+
+/*解决pace占位，导致第一个菜单有位置选择不上的问题*/
+.pace:before {
+    top: 34px;
+}
+.pace-progress {
+    top: 34px;
+}
+.pace .pace-activity {
+    top: 38px;
+}
+
+/*调整label的高度和input一致*/
+.lis-label {
+    /*height: 26px;*/
+    padding-top: 2px;
+    /*padding-bottom: 3px;*/
+    padding-left: 0px !important;
+    /*padding-right: 3px !important;*/ /* 调整为按照分辨率配置 */
+    /*font-size: 9px;*/
+    text-align: right;
+    width: 100%
+}
+
+/* 按照分辨率配置 */
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    position: relative;
+    min-height: 0px;
+    /*padding-bottom: 1px;*/ /* 把字体从30调整为26后，缩小间距 */
+    /*padding-left: 5px;*/ /* 调整为按照分辨率配置 */
+    /*padding-right: 5px*/ /* 调整为按照分辨率配置 */
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+/*增加排版样式*/
+.col-sm-1dot5, .col-sm-2dot5, .col-sm-3dot5, .col-sm-4dot5, .col-sm-5dot5, .col-sm-6dot5, .col-sm-7dot5, .col-sm-8dot5, .col-sm-9dot5, .col-sm-10dot5, .col-sm-11dot5 {
+    float: left;
+    position: relative;
+    min-height: 1px;
+    /*padding-bottom: 1px;*/ /* 把字体从30调整为26后，缩小间距 */
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+@media screen and (min-width: 1153px) {
+    .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+        padding-left: 5px;
+        padding-right: 5px
+    }
+
+    .lis-label {
+        padding-right: 3px !important;
+    }
+}
+
+@media screen and (min-width: 1152px) {
+    .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+        padding-left: 0px;
+        padding-right: 5px
+    }
+
+    .lis-label {
+        padding-right: 0px !important;
+    }
+}
+
+@media screen and (max-width: 1151px) {
+    .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+        padding-left: 0px;
+        padding-right: 1px
+    }
+
+    .lis-label {
+        padding-right: 0px !important;
+    }
+}
+
+.col-sm-1dot5 {
+    width: 12.4%
+}
+.col-sm-2dot5 {
+    width: 20.83333333%
+}
+.col-sm-3dot5 {
+    width: 29.16666666%
+}
+.col-sm-4dot5 {
+    width: 37.4%
+}
+.col-sm-5dot5 {
+    width: 45.83333333%
+}
+.col-sm-6dot5 {
+    width: 54.16666666%
+}
+.col-sm-7dot5 {
+    width: 62.5%
+}
+.col-sm-8dot5 {
+    width: 70.83333333%
+}
+.col-sm-9dot5 {
+    width: 79.16666666%
+}
+.col-sm-10dot5 {
+    width: 87.5%
+}
+.col-sm-11dot5 {
+    width: 95.83333333%
+}
+
+/* End 按照分辨率配置 */
+/*调整高度和input一致*/
+.form-control {
+    height: 26px;
+}
+.label-control {
+    margin-top: 5px !important;
+}
+
+.sino-btn {
+    text-align: right;
+    /*padding-top: 5px;*/
+    padding-left: 15px;
+    padding-right: 10px;
+}
+
+.sino-noPadding {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/*菜单上方导航栏的高度*/
+.sidebar .nav > li.nav-profile {
+    padding-left: 20px;
+    /*padding-top: 15px;*/ /*如果需要显示文字，用15*/
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+/*二级子菜单的圆圈和文字的相对高度*/
+.sidebar .sub-menu > li > a:before {
+    top: 10px;
+}
+
+/*一级、二级菜单文字显示不下时，对齐换行*/
+.sidebar .nav .has-sub > a > span, .sidebar .nav .has-sub .sub-menu > li > a span {
+    width: 150px;
+    position: relative;
+    display: inline-table;
+}
+
+/*三级菜单文字显示不下时，对齐换行*/
+.sidebar .nav .has-sub .sub-menu .sub-menu > li > a span {
+    width: 120px;
+}
+
+/*四级菜单文字显示不下时，对齐换行*/
+.sidebar .nav .has-sub .sub-menu .sub-menu .sub-menu > li > a span {
+    width: 90px;
+}
+
+/*五级菜单文字显示不下时，对齐换行*/
+.sidebar .nav .has-sub .sub-menu .sub-menu .sub-menu .sub-menu > li > a span {
+    width: 60px;
+}
+
+/*分支菜单文字显示*/
+.sidebar .nav .has-sub > a > b {
+    position: absolute;
+    display: inline-table;
+}
+
+.navbar {
+    min-height: 30px;
+    margin-bottom: 0px;
+}
+
+/*navbar 左上角的文字*/
+.navbar-brand {
+    padding: 3px 20px;
+    height: 20px
+}
+
+.navbar-form {
+    padding: 0px 15px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+}
+
+/*搜索框的按键高度*/
+.navbar-form .btn-search {
+    top: 2px;
+    height: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+/*铃铛的高度*/
+.navbar-nav > li > a {
+    padding-top: 12px;
+    padding-bottom: 4px;
+}
+
+/*铃铛旁边红色数字的高度*/
+.navbar-nav > li > a .label {
+    top: 3px;
+    right: 2px;
+}
+
+/*登陆退出按钮的hover样式*/
+#logout:hover {
+    background: #49b6d6 !important;
+}
+
+/*菜单栏的高度*/
+.sidebar {
+    padding-top: 37px;
+}
+
+/*用于空格占位*/
+.space {
+    padding-right: 20px;
+}
+
+/*select2组件高度*/
+.select2-container .select2-choice {
+    height: 26px !important;
+    border-radius:0px;
+}
+.select2-container-disabled {
+    background-color: #e5e9ed;
+    opacity: .6;
+}
+/*把lis-select选择内容后的小叉，往后移*/
+.select2-container .select2-choice abbr {
+    right: 15px !important;
+    top: 55%;
+}
+/*把lis-select的箭头，往上移*/
+.select2-container .select2-choice .select2-arrow b, .select2-container .select2-choice div b {
+    background-position: 0 0px;
+}
+.select2-dropdown-open .select2-choice .select2-arrow b, .select2-dropdown-open .select2-choice div b {
+    background-position: -18px 0px;
+}
+/*解决lis-select选择的内容过长时，导致换行的问题*/
+.select2-container .select2-choice > .select2-chosen {
+    position: absolute;
+    width: 97%;
+    padding: 4px 12px;
+}
+
+/*日期组件的小叉*/
+.datepicker-addon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 4px;
+    right: 0px;
+    z-index: 5;
+}
+
+.panel-heading .nav-tabs > li > a {
+    padding: 5px 15px;
+}
+.tab-content { /*lisTab组件的样式*/
+    background: #F0F8FF;
+    margin-bottom: 2px;
+    padding: 5px 0px;
+    padding-bottom: 0px !important;
+    padding-top: 0px !important;
+}
+.tab-content .panel {
+    margin-bottom: 2px;
+}
+.nav-tabs {
+    background-color: #242a30;
+}
+.tab-overflow .nav-tabs > li.prev-button + li.active > a {
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+}
+.nav.nav-tabs.nav-tabs-inverse > li.active > a, .nav.nav-tabs.nav-tabs-inverse > li.active > a:focus, .nav.nav-tabs.nav-tabs-inverse > li.active > a:hover {
+    padding-top: 3px;
+    margin-left: 2px;
+}
+
+.nav > li > a {
+    color: #FFFFFF;
+}
+
+/*解决input-group中，元素换行的问题*/
+.lisNoWrap, .no-wrap {
+    float: left !important;
+}
+
+.btn-left {
+    text-align: left !important;
+}
+
+/*调整高度和input一致*/
+.form-control-noWidth {
+    height: 26px;
+    border: 1px solid #ccd0d4;
+    box-shadow: none;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.cbx-lis {
+    display: inline-block;
+    margin-top: 7px !important;
+    margin-left: 5px !important;
+    /*margin-right: 5px !important;*/
+    width: 14px;
+    height: 14px;
+    border: none;
+    vertical-align: sub;
+}
+
+.p-t-7 {
+    padding-top: 7px !important;
+}
+
+.span-h-30 {
+    height: 30px;
+    display: inline-block;
+}
+
+.gridValidateFail {
+    background-color: #FFDEDD !important;
+}
+.gridColYellow {
+    background-color: #FDFCD8 !important;
+    border-bottom: 1px solid;
+    border-color: #d4d4d4;
+}
+
+/************右边*************/
+.panel-card {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.panel-card-left {
+    float: left;
+    width: 48%;
+}
+
+.panel-card-right {
+    float: right;
+    width: 48%;
+}
+
+.panel-card-subject {
+    border: 1px solid #CAD0D6;
+    border-bottom: 5px solid #00acac;
+    background-color: #ffffff;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.panel-card-title {
+    margin: 0 auto;
+    height: 50px;
+    width: 96%;
+    line-height: 50px;
+    border-bottom: 1px solid #348fe2;
+    font-size: 16px;
+}
+
+.panel-card-label {
+    text-align: center;
+    margin: 0 auto;
+    height: 35px;
+    width: 80%;
+    line-height: 35px;
+    background-color: #348fe2;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+}
+
+.color-white {
+    color: white;
+}
+
+.color-black {
+    color: #000000;
+}
+
+.color-gary {
+    color: #77818C;
+}
+
+dl {
+    margin-top: 10px !important;
+    font-size: 14px;
+}
+
+dt {
+    padding-top: 10px;
+    width: 20% !important;
+}
+
+dd {
+    padding-top: 10px;
+    margin-left: 22% !important;
+}
+
+legend {
+    font-size: 14px !important;
+    font-weight: 700;
+    padding-left: 10px;
+    margin-bottom: 6px;
+    padding-bottom: 0px;
+}
+
+/* lis-select 和 lis-datepicker 组件默认方边框 */
+.input-group .form-control {
+    border-radius: 0px;  /*默认方边框*/
+}
+
+/*缩小addon的宽度，更美观，而且不占空间*/
+.input-group-addon {
+    padding: 4px 8px !important;
+    border-radius:0px;  /*默认方边框*/
+}
+
+.slimScrollBar, .slimScrollRail {
+    width: 10px !important;
+}
+
+img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/*星星评价UI*/
+.starSys{width:100%;padding:3px 50px 5px 50px;}
+.starSys ul, li{list-style:none}
+.starSys .star{height:20px;width:120px;position:relative;background:url(../img/star.png) repeat-x;cursor:pointer;float: left;} /*默认显示5星长度*/
+.starSys .star li{float:left;padding:0px;margin:0px}
+.starSys .star li a{display:block;width:24px;height:20px;overflow:hidden;text-indent:-9999px;position:absolute;z-index:5}
+.starSys .star li a:hover{background:url(../img/star.png) 0 -25px repeat-x;z-index:3;left:0}
+.starSys .star a.one-star{left:0}
+.starSys .star a.one-star:hover{width:24px}
+.starSys .star a.two-star{left:24px}
+.starSys .star a.two-star:hover{width:48px}
+.starSys .star a.three-star{left:48px}
+.starSys .star a.three-star:hover{width:72px}
+.starSys .star a.four-star{left:72px}
+.starSys .star a.four-star:hover{width:96px}
+.starSys .star a.five-star{left:96px}
+.starSys .star a.five-star:hover{width:120px}
+.starSys .star a.six-star{left:120px}
+.starSys .star a.six-star:hover{width:144px}
+.starSys .star a.seven-star{left:144px}
+.starSys .star a.seven-star:hover{width:168px}
+.starSys .star a.eight-star{left:168px}
+.starSys .star a.eight-star:hover{width:192px}
+.starSys .star a.nine-star{left:192px}
+.starSys .star a.nine-star:hover{width:216px}
+.starSys .star a.ten-star{left:216px}
+.starSys .star a.ten-star:hover{width:240px}
+.starSys .current-rating{background:url(../img/star.png) 0 -25px repeat-x;position:absolute;height:20px;z-index:1;top:0;left:20%;}
+.starBoxLine{
+    position:relative;left:0px;height:30px;
+}
+.starBoxTitle{
+    float:left;width:20%;text-align: right;padding-right: 10px;padding-top:2px;font-weight: 700;
+}
+/* End 星星评价UI*/
+
+.menu-panel {
+    position: fixed;
+    right: 0px;
+    /* top: 150px; */
+    z-index: 1000;
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .4);
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .4);
+    -moz-box-shadow: 0 0 2px rgba(0, 0, 0, .4);
+    width: 40%;
+    -webkit-transition: right .2s linear;
+    -moz-transition: right .2s linear;
+    transition: right .2s linear;
+}
+
+
+
+
+
+

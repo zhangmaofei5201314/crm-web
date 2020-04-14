@@ -431,7 +431,9 @@ function saverole() {
     for (j = 0; j < len; j++) {
         $rolemenus.push(checked[j].nodeid);
     }
+    console.log(token);
     var $cmsrole = {
+        token:token,
         roleid: $roleid,
         rolename: $rolename,
         menus: $rolemenus,
@@ -443,7 +445,7 @@ function saverole() {
         type: "POST",
         dataType: "json",
         data: JSON.stringify($cmsrole),
-        contentType: "application/json",
+        // contentType: "application/json",
         success: function (data) {
 
             if(data.flag == '1'){
@@ -465,7 +467,7 @@ function saverole() {
             }
 
         },
-        error: function () {
+        error: function (data) {
             swal({
                 title: data.message,
                 type : "error"

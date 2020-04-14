@@ -188,7 +188,7 @@ function queryEmailList(tableElementId,eRole) {
     $.ajax({
         url: systemPath + "/controller/email/management/selectEmail",
         type: "POST",
-        dateType: "json",
+        dataType: "json",
         data: param,
         success: function (data) {
             $(tableElementId).bootstrapTable('load',data);

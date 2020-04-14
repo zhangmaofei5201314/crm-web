@@ -52,7 +52,8 @@ function initTable1() {
                 jobCode : $("#jobCode").val(),
                 startDate : $("#startDate").val(),
                 endDate : $("#endDate").val(),
-                runState : $("#runState").val()
+                runState : $("#runState").val(),
+                token:token
             };
             return temp;
         },
