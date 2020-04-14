@@ -45,8 +45,8 @@ function login() {
                 // console.log(data.token);
                 if(data.code=='200')
                 {
-                    // window.location.href = "../main/welcome.jsp";
-                    window.location.href = "../email/emailinfo.jsp";
+                    window.location.href = "../main/welcome.jsp";
+                    // window.location.href = "../email/emailinfo.jsp";
                     localStorage.setItem("token",data.token);
                 }
                 else {

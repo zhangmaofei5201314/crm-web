@@ -172,7 +172,8 @@ window.operateEvents = {
 function jobPlanDetail(jobPlanCode,IP) {
     var params = {
         jobPlanCode: jobPlanCode,
-        paramValue: IP
+        paramValue: IP,
+        token:token
     };
     $.ajax({
         url: systemPath + "/controller/quartz/management/returnJobView",
@@ -245,7 +246,8 @@ function jobReturnView(jobPlanCode,IP) {
     initDropdown('#jobCodeEdit','jobCode');
     var params = {
         jobPlanCode: jobPlanCode,
-        paramValue: IP
+        paramValue: IP,
+        token:token
     };
     $.ajax({
         url: systemPath + "/controller/quartz/management/returnJobView",
@@ -326,7 +328,8 @@ function isDeleteJob(jobPlanCode,IP) {
 function deleteJob(jobPlanCode,IP) {
     var params = {
         jobPlanCode: jobPlanCode,
-        paramValue: IP
+        paramValue: IP,
+        token:token
     };
     $.ajax({
         url: systemPath + "/controller/quartz/management/deleteJob",
@@ -355,7 +358,8 @@ function deleteJob(jobPlanCode,IP) {
 function stopJob(jobPlanCode,IP) {
     var params = {
         jobPlanCode: jobPlanCode,
-        paramValue: IP
+        paramValue: IP,
+        token:token
     };
     $.ajax({
         url: systemPath + "/controller/quartz/management/stopJob",
@@ -387,7 +391,8 @@ function startJob(jobPlanCode,IP) {
     console.log(jobPlanCode, IP);
     var params = {
         jobPlanCode: jobPlanCode,
-        paramValue: IP
+        paramValue: IP,
+        token:token
     };
     $.ajax({
         url: systemPath + "/controller/quartz/management/startJob",
@@ -420,7 +425,7 @@ function queryJobplanList() {
         url: systemPath + "/controller/queryjobplanlist",
         type: "GET",
         dateType: "json",
-        data: [],
+        data: {token:token},
         success: function (data) {
             $("#jobplantable").bootstrapTable('load',data);
         },
@@ -481,6 +486,7 @@ function saveJob() {
         // endDate: jobEndDate,
         jobPlanDesc: jobDesc,
         // paramValue: paramValue
+        token:token
     };
     var paramDiv = $("#initParam").html();
     if(paramDiv.length>0){
@@ -574,6 +580,7 @@ function editJobPlan() {
         startDate: jobStartDate,
         jobPlanDesc: jobDesc,
         // paramValue: paramValue
+        token:token
     };
     var paramDiv = $("#initParamEdit").html();
     if(paramDiv.length>0){
@@ -620,7 +627,8 @@ function initJobParam(elementId,suffix) {
     var jobCode=$("#jobCode"+suffix).val();
     // alert(jobCode);
     var params = {
-        jobCode: jobCode
+        jobCode: jobCode,
+        token:token
     }
     $.ajax({
         url:systemPath + "/controller/quartz/management/getJobParamList",
