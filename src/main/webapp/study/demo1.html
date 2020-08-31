@@ -12,11 +12,16 @@
             border: 1px solid;
         }
         li{
-            background: blue;
+            background: #bfa;
             color: red;
+            font-size: 20px;
+            font-family: Courier,monospace;
         }
+
+
     </style>
     <script type="text/javascript">
+        //计算
         function fn1() {
             var input = document.getElementById("input");
             var num=input.value;
@@ -27,6 +32,39 @@
                 span.innerHTML=num*num;
             }
         }
+        //进度条
+        function jdtiao (i) {
+            document.getElementById("jdt").style='width: '+5*i/3+'%';
+        }
+
+        //通过消耗cpu来等待
+        function sleep(numberMillis) {
+            var now = new Date();
+            var exitTime = now.getTime() + numberMillis;
+            while (true) {
+                now = new Date();
+                if (now.getTime() > exitTime)
+                    return;
+            }
+        }
+
+        var int=self.setInterval("clock()",1000);
+
+        function start() {
+            clearInterval(int);
+            int = setInterval("clock()",1000);
+        }
+
+        function clock()
+        {
+            var d=new Date();
+            var t=d.toLocaleTimeString();
+            var m=d.getSeconds()
+            document.getElementById("clock").value=t;
+            jdtiao(m);
+
+        }
+
     </script>
 </head>
 <body>
@@ -67,36 +105,25 @@
         <li>张飞</li>
         <li>马云</li>
     </ul>
-    <img src="https://i0.hdslb.com/bfs/sycp/creative_img/201909/67e8037798ea2be8b85d356676240b05.jpg"
+    <img src="//static.missevan.com/dramacoversmini/202003/12/4ea5ce4edbd368af2a09e4dcec25ed6b205424.jpg?x-oss-process=image/resize,m_fill,w_300,h_300,limit_1/auto-orient,0/quality,q_60/format,webp"
          title="妃十三学院" width="320" alt="图片碎了" target="_blank">
     <div>
-        <a href="https://i0.hdslb.com/bfs/sycp/creative_img/201909/67e8037798ea2be8b85d356676240b05.jpg">跳转图片</a>
+        <a href="//static.missevan.com/dramacoversmini/202003/12/4ea5ce4edbd368af2a09e4dcec25ed6b205424.jpg?x-oss-process=image/resize,m_fill,w_300,h_300,limit_1/auto-orient,0/quality,q_60/format,webp">跳转图片</a>
     </div>
-    <form action="url" method="get">
-
-        <h3>登录学子商城</h3>
-        <div>
-            <label>请输入用户名:</label>
-            <input type="text" name="username">
-        </div>
-
-        <div>
-            <label>请输入密码:</label>
-            <input type="password" name="pwd">
-        </div>
-        <div>
-            <input id="auto" type="checkbox" name="auto">
-            <label for="auto">自动登录</label>
-        </div>
-        <div>
-            <input type="submit" value="登录">
-        </div>
 
 
-    </form>
-    &nbsp;
-    &nbsp;
-    &nbsp;
+    <div class="progress progress-striped">
+        <div class="progress-bar progress-bar-success zmf" role="progressbar"
+             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" id="jdt"
+             >
+            <span class="sr-only">90% 完成（成功）</span>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="button" onclick="jdtiao()">开始加载</button>
+
+    <input type="text" id="clock" />
+    <button onclick="int=window.clearInterval(int)">停止</button>
+    <button onclick="start()">开始</button>
     <a href="#" style="color: red;text-decoration: none;border-width: 2px;border-style: solid;border-color: blue;border-radius: 5px">样式测试</a>
 
     <a href="#charAt">锚点测试</a>

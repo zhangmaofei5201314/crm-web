@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1{
+            width: 800px;
+            height: 200px;
+            border: 10px red solid;
+        }
+
+        .inner{
+            width: auto;
+            height: 200px;
+            background-color: #1fc231;
+            margin-left: 200px;
+            margin-right: 200px;
+
+            /*
+              元素的水平布局
+                元素在其父元素中水平方向的位置由以下几个属性共同决定
+                margin-left
+                border-left
+                padding-left
+                width
+                padding-right
+                border-right
+                margin-right
+                一个元素在其父元素中，水平布局必须要满足以下等式：
+margin-left+border-left+padding-left+width
++padding-right+border-right+margin-right = 其父元素的内容区的宽度（必须成立）
+               0+0+0+200+0+0+0=800（不成立）
+                       |
+               0+0+0+200+0+0+600=800
+                 - 以上等式必须满足，如果相加结果使等式不成立，则称为过渡约束，等式会自动调整
+                   - 调整情况：
+                     - 如果七个值中没有为 auto 的情况，则浏览器会自动调整margin-right使等式成立
+                   - 这七个值中有三个值可设置auto
+                     width
+                     margin-left
+                     margin-right
+                     - 如果某个值为 auto，则会自动调整为 auto 的那个值以使等式成立
+                     200+0+0+auto+0+0+200=800  auto=400
+                   - 如果设置一个宽度和一个外边距设置为auto，则宽度会调整到最大，设置auto的外边距为0
+                   - 如果三个值都是auto，则外边距为0，宽度最大。
+                   - 如果将两个外边距设置为auto,宽度为固定值，则会将两个外边距设置为相同的值。
+                     所以，我们利用这个特点来使一个元素在其父元素中水平居中
+                     示例：
+                       width: xxxpx;
+                       margin: 0 auto;
+
+
+/.,mnbvcxz
+            */
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

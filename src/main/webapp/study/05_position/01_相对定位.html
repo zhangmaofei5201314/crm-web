@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #f1a899;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: #811899;
+            /*
+              定位 position
+                - 通过定位可以将元素移动到任何位置
+                - 使用 position 属性设置定位
+                  可选值：
+                    static  默认值，没有开启定位
+                    relative  开启元素相对定位
+                    absolute  开启元素绝对定位
+                    fixed  开启元素固定定位
+                    sticky  开启元素粘滞定位
+
+                 - 相对定位
+                     - position: relative
+                     - 特点：
+                       1.元素开启相对定位，若没有设置偏移量，元素不会发生变化
+                       2.相对定位是元素参照开启定位前的位置进行定位的
+                       3.相对定位会提升元素的层级
+                       4.相对定位不会使元素脱离文档流，不会改变元素的性质，块还是块，行内元素还是行内元素
+
+                 -
+
+                 - 偏移量 offset
+                     - 当开启了定位，可以通过偏移量来移动元素
+                       top
+                          定位元素和定位位置上边的距离-
+                       bottom
+                          定位元素和定位位置下边的距离
+                       left
+                          定位元素和定位位置左边的距离
+                       right
+                          定位元素和定位位置右边的距离
+
+
+
+        */
+            position: relative;
+            left: 200px;
+            top: -200px;
+        }
+
+        .box3{
+            width: 200px;
+            height: 200px;
+            background-color: #11a899;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+</body>
+</html>

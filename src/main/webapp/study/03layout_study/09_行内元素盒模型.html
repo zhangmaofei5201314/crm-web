@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-color: #bfa;
+        }
+
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #fba;
+            /*阴影，box-shadow: 水平偏移量，垂直偏移量，阴影模糊半径，颜色*/
+            box-shadow: 10px 10px 10px rgba(0,0,0,.5);
+
+            /*border-radius: 100px 20px 30px 40px;*/
+            border-radius: 100px;
+        }
+        .a1{
+            /*
+             display 设置元素的显示类型
+                可选值：
+                  inline 将元素设置为行内元素
+                  block 将元素设置为块级元素
+                  inline-block 行内块元素，即可以设置宽高，又不会独占一行
+                  table 将元素设置为一个表格
+                  none 元素在页面中不显示
+
+              visibility 设置元素的显示状态
+                可选值：
+                  visible 默认值，在页面中正常显示
+                  hidden 元素在页面中隐藏，但还会占着排版位置
+            */
+
+            display: block;
+
+            visibility: visible;
+
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+
+
+        .left-nav{
+            width: 190px;
+            height: 150px;
+            padding: 10px 0;
+            background-color: #fff;
+            margin: 50px auto;
+        }
+        .left-nav .item{
+            height: 25px;
+            line-height: 25px;
+            padding-left: 18px;
+            font-size: 15px;
+        }
+        .item:hover{
+            background-color: #D9D9D9;
+        }
+        .item a{
+            color: #333;
+            text-decoration: none;
+        }
+        .item a:hover{
+            color: #c81632;
+        }
+    </style>
+</head>
+<body>
+
+    <a class="a1" href="javascript:">超链接</a>
+    <a class="a1" href="javascript:">超链接</a>
+    <div class="box1"></div>
+    <br/>
+    <br/>
+    <br/>
+
+    <nav class="left-nav">
+        <div class="item">
+            <a href="#">家园电器</a>
+        </div>
+        <div class="item">
+            <a href="#">手机</a>/<a href="#">运营商</a>/<a href="#">数码</a>
+        </div>
+        <div class="item">
+            <a href="#">电脑</a>/<a href="#">办公</a>
+        </div>
+
+    </nav>
+
+
+</body>
+</html>

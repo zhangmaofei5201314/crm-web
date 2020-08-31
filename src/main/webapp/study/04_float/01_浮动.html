@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+
+            /*
+              通过浮动可使元素在其父元素的左侧或右侧移动
+                float
+                 可选值：
+                   none 默认值，不浮动
+                   left 向左浮动
+                   right 向右浮动
+                注意：元素设置浮动后，水平布局的等式不需要强制成立
+                  元素设置浮动后，会完全从文档流中脱离，不在占用文档流的位置
+                     所以元素下面的还在文档流中的元素会自动向上移动
+
+                浮动特点：
+                  1.浮动元素会完全脱离文档流，不再占文档流的位置
+                  2.设置浮动以后，元素会向父元素的左侧或右侧移动
+                  3.浮动元素默认不会从父元素中移出
+                  4.浮动元素向左或向右移动，不会超过他前边的其他浮动元素
+            */
+            float: left;
+
+            /*
+              设置浮动。会脱离文档流
+               脱离文档流特点：
+                 块元素：
+                   1.块元素不再独占一行
+                   2.脱离文档流后，块元素的宽，高默认由内容撑开
+
+                 行内元素：
+                   行内元素脱离文档流，特点和块元素一样
+
+                 脱离文档流后，不需要区分块元素和行内元素
+
+            */
+
+        }
+
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: #f1a899;
+            float: left;
+
+            /*
+              浮动会导致高度塌陷
+            */
+
+            /*
+              BFC（Block Formatting Context）块级格式化环境
+                BFC的使一个CSS中的一个隐含属性，可以为一个元素开启BFC，
+                  开启BFC，该元素会变成一个独立的布局弓箭
+                特点：
+                  1.开启BFC的元素不会被浮动的元素所覆盖
+                  2.开启bFC，元素的子元素和父元素的外边距不会重叠
+                  3.开启BFC的元素可以包含浮动元素
+                开启方法
+                  1.设置元素浮动
+                  2.将元素设置为行内块元素 display:inline-block
+                  3.将元素的orverflow设置为非visible的值
+                    常用方式，设置orverflow:hidden，使其开启BFC
+            */
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

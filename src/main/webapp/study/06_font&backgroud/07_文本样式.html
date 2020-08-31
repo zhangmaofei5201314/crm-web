@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100%;
+            border: 1px solid red;
+            font-size: 50px;
+        }
+        span{
+            border: 1px solid blue;
+            font-size: 20px;
+            /*
+               vertical-align 设置元素的垂直对齐方式
+                 可选值：
+                    baseline 默认值，基线对齐
+                    top 顶部对齐
+                    bottom 下部对齐
+                    middle 居中对齐
+            */
+            vertical-align: middle;
+        }
+
+        p{
+            border: 1px solid red;
+
+        }
+        img{
+            /*
+              图片在父元素中默认是基线对齐，这样和父边框就有距离
+
+              设置 vertical-align: bottom; 就会消除
+            */
+            vertical-align: bottom;
+        }
+
+        .p1{
+            width: 200px;
+            /*
+              white-space 设置元素包含的内容如何处理空白
+                可选值：
+                  normal 正常
+                  nowrap 不换行
+                  pre 保留空白
+            */
+            white-space: nowrap;
+            overflow: hidden;
+            /*超出部分显示省略号*/
+            text-overflow: ellipsis;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div >
+        今天天气 helloy<span>真不错 hello</span>
+    </div>
+
+    <p><img src="../../pagedemo/assets/images/lights.jpg"></p>
+
+    <p class="p1">你在电脑前看这段文字，
+        写文字的人在百度等你。
+        N年前你来到了这个世界，
+        N年后你想改变世界。
+
+        期待你脚踏祥云，
+        与百度一起改变世界</p>
+
+</body>
+</html>

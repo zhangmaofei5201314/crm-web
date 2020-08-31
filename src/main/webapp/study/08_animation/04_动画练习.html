@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1 {
+            width: 800px;
+            height: 800px;
+            background-color: gainsboro;
+            margin: 0 auto;
+            /*overflow: hidden;!*?????*!*/
+        }
+
+        .box1 div {
+
+            /*margin-bottom: 100px;*/
+
+        }
+
+        .box2 {
+            width: 800px;
+            height: 800px;
+            /*background-color: #bfa;*/
+            background-image: linear-gradient(red, blue);
+            /*左上 右上 右下 左下*/
+            border-radius: 400px 400px 400px 400px;
+            /*设置动画*/
+            /*animation-name: 要对当前元素生效的关键帧的名字*/
+            animation-name: turn;
+
+            /*animation-duration: 动画的执行时间*/
+            animation-duration: 2s;
+
+            /*动画延迟*/
+            animation-delay: 0.2s;
+
+            /*animation-iteration-count 动画执行次数
+                可选值：
+                  次数
+                  infinite 无限执行
+
+            */
+            animation-iteration-count: infinite;
+
+            /*animation-direction:
+                指定动画的运行方向
+                可选值：
+                   normal  from > to
+                   reverse  to > from
+                   alternate  反复运行
+                   alternate-reverse to >from 重复执行
+            */
+            animation-direction: normal;
+
+            /*animation-play-state: 动画执行状态
+               可选值：
+                 running 运行
+                 paused 暂停
+            */
+            /*animation-play-state: paused;*/
+
+            /*animation-fill-mode: 动画的填充状态
+                none  默认值，执行完毕回到原来位置
+                forwards 执行完毕回到结束位置
+                backwards  动画延时等待时，元素就会处于开始位置
+                both 结合了 forwards 和 backwards
+            */
+            animation-fill-mode: none;
+
+            animation-timing-function: steps(5);
+
+
+            /*也可以简写*/
+
+        }
+
+        .box3 {
+            width: 100px;
+            height: 100px;
+            background-color: #ac0013;
+        }
+
+        .box1:hover div {
+            animation-play-state: paused;
+
+            /*margin-left: 700px;*/
+        }
+
+        /*
+          动画可以自动触发动态效果
+          设置动画，必须设置关键帧，关键帧设置了动画的每一个步骤
+        */
+        @keyframes zmf {
+            /*from 动画的开始状态，也可以写0%*/
+            from {
+                margin-left: 0px;
+                margin-top: 0px;
+                width: 800px;
+                height: 800px;
+                border-radius: 400px 400px 0 0;
+            }
+            25% {
+                margin-left: 0px;
+                margin-top: 0px;
+                width: 800px;
+                height: 800px;
+                border-radius: 0px 400px 400px 0;
+            }
+            50% {
+                margin-left: 0px;
+                margin-top: 0px;
+                width: 800px;
+                height: 800px;
+                border-radius: 0px 0px 400px 400px;
+            }
+            75% {
+                margin-left: 0px;
+                margin-top: 0px;
+                width: 800px;
+                height: 800px;
+                border-radius: 400px 0px 0px 400px;
+            }
+            /*to 动画的结束状态，也可以写100%*/
+            to {
+                margin-left: 0px;
+                margin-top: 0px;
+                width: 800px;
+                height: 800px;
+                border-radius: 400px 400px 0 0;
+            }
+        }
+
+        @keyframes turn {
+            0% {
+                -webkit-transform: rotateY(0deg);
+                /*-webkit-transform: rotateX(0deg);*/
+            }
+            25% {
+                -webkit-transform: rotateY(90deg);
+                /*-webkit-transform: rotateX(90deg);*/
+            }
+            50% {
+                -webkit-transform: rotateY(180deg);
+                /*-webkit-transform: rotateX(180deg);*/
+            }
+            75% {
+                -webkit-transform: rotateY(270deg);
+                /*-webkit-transform: rotateX(270deg);*/
+            }
+            100% {
+                -webkit-transform: rotateY(360deg);
+                /*-webkit-transform: rotateX(360deg);*/
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box1">
+    <div class="box2"></div>
+</div>
+</body>
+</html>

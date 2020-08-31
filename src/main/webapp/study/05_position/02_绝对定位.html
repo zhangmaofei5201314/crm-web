@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #f1a899;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: #ac0013;
+            /*
+              定位 position
+                - 通过定位可以将元素移动到任何位置
+                - 使用 position 属性设置定位
+                  可选值：
+                    static  默认值，没有开启定位
+                    relative  开启元素相对定位
+                    absolute  开启元素绝对定位
+                    fixed  开启元素固定定位
+                    sticky  开启元素粘滞定位
+
+                 - 绝对定位
+                     - position: absolute
+                     - 特点：
+                       1.元素开启绝对定位，若没有设置偏移量，元素不会发生变化
+                       2.开启绝对定位后，元素会从文档流中脱离
+                       3.绝对定位会改变元素的性质，行内变块，块高度被内容撑开
+                       4.绝对定位会使元素提升一个层级
+                       5.绝对定位元素是相对于其 包含块 进行定位的
+
+                       包含块 containing block
+                         - 正常情况下
+                             包含块就是离当前元素最近的祖先块元素
+                             <div><div></div></div>
+                         - 绝对定位的包含快
+                             包含快就是离他最近的开启了定位的祖先元素，
+                                如果所有祖先元素都没有开启定位，则根元素就是他的包含块
+
+                         - html （根元素、初始包含块）
+
+
+                 -
+
+                 - 偏移量 offset
+                     - 当开启了定位，可以通过偏移量来移动元素
+                       top
+                          定位元素和定位位置上边的距离-
+                       bottom
+                          定位元素和定位位置下边的距离
+                       left
+                          定位元素和定位位置左边的距离
+                       right
+                          定位元素和定位位置右边的距离
+
+
+
+        */
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .box3{
+            width: 200px;
+            height: 200px;
+            background-color: #811899;
+        }
+        .box4{
+            width: 500px;
+            height: 500px;
+            background-color: #11a899;
+            /*position: relative;*/
+        }
+
+        .box5{
+            width: 300px;
+            height: 300px;
+            background-color: #91a899;
+            position: relative;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+<div class="box1">1</div>
+<div class="box4">
+    4
+    <div class="box5">
+        5
+        <div class="box2">2</div>
+    </div>
+</div>
+<div class="box3">3</div>
+</body>
+</html>

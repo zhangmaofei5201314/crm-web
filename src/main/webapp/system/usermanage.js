@@ -211,7 +211,8 @@ function userdetail(usercode) {
         type: "GET",
         dateType : "json",
         data: {
-            usercode : usercode
+            usercode : usercode,
+            token : token
         },
 
         success: function (data) {
@@ -249,7 +250,8 @@ function useredit(usercode) {
         type: "GET",
         dateType : "json",
         data: {
-            usercode : usercode
+            usercode : usercode,
+            token:token
         },
 
         success: function (data) {

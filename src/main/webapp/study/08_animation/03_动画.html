@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box1{
+            width: 800px;
+            height: 800px;
+            background-color: gainsboro;
+            overflow: hidden;/*?????*/
+        }
+        .box1 div{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 100px;
+
+        }
+        .box2 {
+            background-color: #bfa;
+            /*设置动画*/
+            /*animation-name: 要对当前元素生效的关键帧的名字*/
+            animation-name: zmf;
+
+            /*animation-duration: 动画的执行时间*/
+            animation-duration: 0.5s;
+
+            /*动画延迟*/
+            animation-delay: 1s;
+
+            /*animation-iteration-count 动画执行次数
+                可选值：
+                  次数
+                  infinite 无限执行
+
+            */
+            animation-iteration-count: infinite;
+
+            /*animation-direction:
+                指定动画的运行方向
+                可选值：
+                   normal  from > to
+                   reverse  to > from
+                   alternate  反复运行
+                   alternate-reverse to >from 重复执行
+            */
+            animation-direction: normal;
+
+            /*animation-play-state: 动画执行状态
+               可选值：
+                 running 运行
+                 paused 暂停
+            */
+            /*animation-play-state: paused;*/
+
+            /*animation-fill-mode: 动画的填充状态
+                none  默认值，执行完毕回到原来位置
+                forwards 执行完毕回到结束位置
+                backwards  动画延时等待时，元素就会处于开始位置
+                both 结合了 forwards 和 backwards
+            */
+            animation-fill-mode: none;
+
+
+            /*也可以简写*/
+
+        }
+
+        .box1:hover div {
+            animation-play-state: paused;
+
+            /*margin-left: 700px;*/
+        }
+        /*
+          动画可以自动触发动态效果
+          设置动画，必须设置关键帧，关键帧设置了动画的每一个步骤
+        */
+        @keyframes zmf {
+            /*from 动画的开始状态，也可以写0%*/
+            from{
+                margin-left: 0px;
+                margin-top: 0px;
+            }
+            25%{
+                margin-top: 0px;
+                margin-left: 700px;
+            }
+            50%{
+                margin-top: 700px;
+                margin-left: 700px;
+            }
+            75%{
+                margin-left: 0px;
+                margin-top: 700px;
+            }
+            /*to 动画的结束状态，也可以写100%*/
+            to{
+                margin-left: 0px;
+                margin-top: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box1">
+    <div class="box2"></div>
+</div>
+</body>
+</html>

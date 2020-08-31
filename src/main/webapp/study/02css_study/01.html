@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--
+      第二种样式(内部样式)：
+        -将样式写到head的style中
+        可以为多个标签定义样式，不可跨文件使用
+    -->
+    <style type="text/css">
+        p{
+            color: yellow;
+            font-size: 40px;
+        }
+    </style>
+
+    <!--
+      第三种样式（外部样式）：
+        - 写在一个css文件中，用link标签引入
+        - 将样式css文件中，可以更好的使用浏览器的缓存机制
+
+    -->
+    <link rel="stylesheet" href="01.css">
+</head>
+<body>
+
+    <!--
+        网页三部分：
+         结构（html）
+         表现（css）
+         行为（JavaScript）
+
+        CSS：层叠样式
+
+    -->
+
+    <!--
+      第一种样式（内联样式，行内样式）：
+        -在标签内通过style属性设置
+
+
+    -->
+    <p style="color: red">锄禾日当午，白日依山尽</p>
+    <p>汗滴禾下土，野火吹又生</p>
+
+
+</body>
+</html>

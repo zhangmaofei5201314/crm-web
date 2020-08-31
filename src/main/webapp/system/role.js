@@ -431,12 +431,13 @@ function saverole() {
     for (j = 0; j < len; j++) {
         $rolemenus.push(checked[j].nodeid);
     }
+    var menuString = getTextByJs($rolemenus);
     console.log(token);
     var $cmsrole = {
         token:token,
         roleid: $roleid,
         rolename: $rolename,
-        menus: $rolemenus,
+        menuString: menuString,
         operatetype: $operatetype
     }
 
@@ -444,7 +445,8 @@ function saverole() {
         url: systemPath + "/controller/saverole",
         type: "POST",
         dataType: "json",
-        data: JSON.stringify($cmsrole),
+        // data: JSON.stringify($cmsrole),
+        data: $cmsrole,
         // contentType: "application/json",
         success: function (data) {
 
