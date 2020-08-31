@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--
+        盒子模型（box model）
+          - CSS将页面元素设置为矩形的盒子，将不同的盒子摆放到不同位置
+          - 每一个盒子都有以下几个部分组成
+            内容区（content）
+            内边距（padding）
+            边框（border）
+            外边距（margin）
+
+
+    -->
+    <style type="text/css">
+        .box1{
+            /*
+             内容区：元素中的所有子元素和文本内容都在内容区中
+            */
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            /*
+             边框（border）
+             设置边框要设置3各样式
+               边框宽度 border-width
+               边框颜色 border-color
+               边框样式 border-style
+            */
+            /*border-width: 10px 20px 30px 40px;*/
+            /*上 右 下 左*/
+            border-width: 10px 20px 30px;
+            /*上 左右 下*/
+            border-color: yellow #0a85ff #f1a899 #1fc231;
+            /*与border-width类似*/
+            /*border-style: solid;*/
+            border-style: dotted;
+
+            /*border简写属性，没有顺序要求*/
+            border: 10px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

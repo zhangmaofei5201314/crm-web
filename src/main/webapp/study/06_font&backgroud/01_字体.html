@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        /*
+          由服务端提供字体格式
+          问题：
+            1.加载速度
+            2.版权
+            3.字体格式
+        */
+        @font-face {
+            /*给字体起名字*/
+            font-family: zmfont;
+            /*字体文件的位置*/
+            /*src: url("./font/FontAwesome.otf");*/
+            src: url("./font/kh.otf");
+        }
+        p{
+            /**
+             font-family 字体族
+               可选值：
+                 serif 衬线字体
+                 sans-serif 非衬线字体
+                 monospace 等宽字体
+
+                 font-family 可以指定多个值，多个字体名以英文逗号隔开，
+             */
+            color: red;
+            font-size: 20px;
+            /*font-family: "Courier New", Courier, monospace;*/
+            font-family: zmfont;
+        }
+    </style>
+</head>
+<body>
+    <p>大风起兮云飞扬</p>
+</body>
+</html>

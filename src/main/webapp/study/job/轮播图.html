@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .img-list{
+            width: 600px;
+            height: 400px;
+            margin: 100px auto;
+            position: relative;
+            background-color: #f0f;
+        }
+
+        .img-list div{
+            position: absolute;
+        }
+
+        /*.img-list div:nth-child(2){*/
+            /*z-index: 1;*/
+        /*}*/
+
+        .zindex{
+            z-index: 1;
+        }
+
+        .pointer{
+            position: absolute;
+            top: 370px;
+            left: 40px;
+            z-index: 9999;
+        }
+        
+        .pointer a{
+            float: left;
+            width: 10px;
+            height: 10px;
+
+            border-radius: 50%;
+            margin: 0 4px;
+            background-clip: content-box;
+            background-color: rgba(255,255,255,0.7);
+        }
+
+        .pointer a:active,
+        .pointer a:hover{
+            background-color: red;
+            border: 2px seagreen solid;
+        }
+
+        .pointer a:hover{
+
+        }
+
+    </style>
+    <script type="text/javascript">
+
+        window.onload=function () {
+
+            var i=1;
+
+            setInterval(function () {
+                if(i===4){
+                    i=1
+                }
+
+                console.log(i+'');
+                clickA(i+'');
+                i++;
+            },1000)
+        }
+
+        function clickA(a1) {
+            // var a1=document.getElementById('a1').attributes.value.value;
+            console.log(a1)
+
+            document.getElementById('1').setAttribute('class','')
+            document.getElementById('2').setAttribute('class','')
+            document.getElementById('3').setAttribute('class','')
+            document.getElementById(a1).setAttribute('class','zindex')
+        }
+    </script>
+</head>
+<body>
+
+        <div class="img-list" id="imgList">
+            <div id="1"><a href="#"><img src="../../pagedemo/assets/images/lights.jpg"></a> </div>
+            <div id="2"><a href="#"><img src="../../pagedemo/assets/images/fjords.jpg"></a> </div>
+            <div id="3"><a href="#"><img src="../../pagedemo/assets/images/nature.jpg"></a> </div>
+
+            <div class="pointer">
+                <a href="#" zindex="1" onclick="clickA(this.attributes.zindex.value)" onmouseover="clickA(this.attributes.zindex.value)"></a>
+                <a href="#" zindex="2" onclick="clickA(this.attributes.zindex.value)" onmouseover="clickA(this.attributes.zindex.value)"></a>
+                <a href="#" zindex="3" onclick="clickA(this.attributes.zindex.value)" onmouseover="clickA(this.attributes.zindex.value)"></a>
+            </div>
+
+        </div>
+
+</body>
+</html>

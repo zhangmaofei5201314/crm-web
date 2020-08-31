@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过渡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box1{
+            width: 800px;
+            height: 800px;
+            background-color: gainsboro;
+            overflow: hidden;/*?????*/
+        }
+        .box1 div{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 100px;
+
+        }
+        .box2{
+            background-color: #bfa;
+            margin-left: 0;
+            /*transition: all 2s;*/
+            /*
+              过渡：通过指定一个属性发生变化时的切换方式
+            */
+            /*transition-property: 指定要过渡的属性
+               多个属性以,隔开
+               如果所有属性都要过渡，使用all
+               大部分属性都支持，过渡时从一个有效值到另一个有效值过渡
+
+            */
+            /*transition-property: all;*/
+
+            /*transition-duration: 过渡的持续时间，可以分别指定时间*/
+            /*transition-duration: 2s;*/
+
+            /*transition-timing-function: 过渡的时序函数
+                指定过渡的执行方式
+                可选值：
+                  ease 默认值，慢速开始，先加速，再减速
+                  linear 匀速
+                  ease-in 加速运行
+                  ease-out 减速运行
+                  ease-in-out 先加速，后减速
+                  cubic-bezier() 来指定时序函数
+                    https://cubic-bezier.com
+                  steps() 分步执行过渡
+                    可以设置第二个值 steps(3,end)
+                      end 在时间结束时执行--默认值
+                      start 在时间开始时执行
+            */
+            /*transition-timing-function: steps(3,end);*/
+
+            /*transition-delay: 过渡效果的延迟
+               等待一段时间后，执行
+            */
+
+            /*transition-delay: 2s;*/
+
+           /*transition 可以省略简写
+              可以同时设置过渡的所有属性，
+              只有一个要求，如果写延迟时间，则两个时间中第一个是持续时间,
+                第二个是延迟时间
+           */
+            transition: all 2s;
+        }
+        .box3{
+            background-color: blue;
+            transition-property: all;
+            transition-duration: 2s;
+        }
+        .box1:hover div{
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            margin-left: 600px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box1">
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+
+</body>
+</html>

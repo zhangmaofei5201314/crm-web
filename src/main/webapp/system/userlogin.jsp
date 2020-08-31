@@ -20,6 +20,7 @@
 </head>
 
 <body class="bg-primary">
+<script type="text/javascript" color="203,55,66" opacity="0.9"count="500"src="../system/dynamic.js"></script>
 	<div class="Nixon-login">
 		<div class="container">
 			<div class="row">

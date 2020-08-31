@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>背景渐变</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            /*
+              通过设置多个颜色，实现从一个颜色向另一个颜色过渡的效果
+              ！！渐变是图片，需要background-image设置
+
+              线性渐变，颜色沿一条直线发生变化
+                linear-gradient()
+
+                linear-gradient(red ,yellow);红色开头，黄色结尾，中间渐变
+                可以指定渐变方向
+                  to left
+                  to right
+                  to bottom
+                  to top
+                  xxdeg 度数
+                  xxturn 表示圈
+
+                  可以指定多个颜色，多个颜色默认情况下平均分配
+                  也可以手动控制
+            */
+
+            background-image: linear-gradient(red ,yellow);
+            /*background-image: linear-gradient(to left,red ,yellow);*/
+            /*background-image: linear-gradient(to left,red ,green ,yellow);*/
+            /*background-image: linear-gradient(red 30px,#bfa,yellow);*/
+
+            /*background-image: repeating-linear-gradient(red 10px,yellow 50px);*/
+        }
+
+        .box2{
+            width: 200px;
+            height: 200px;
+            /*
+                径向渐变
+            */
+            background-image: radial-gradient(100px 100px,red,yellow);
+            /*background-image: repeating-radial-gradient(red,yellow);*/
+        }
+    </style>
+
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

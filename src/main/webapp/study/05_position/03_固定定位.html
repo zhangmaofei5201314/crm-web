@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{
+            height: 3000px;
+        }
+
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #f1a899;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: #ac0013;
+            /*
+              定位 position
+                - 通过定位可以将元素移动到任何位置
+                - 使用 position 属性设置定位
+                  可选值：
+                    static  默认值，没有开启定位
+                    relative  开启元素相对定位
+                    absolute  开启元素绝对定位
+                    fixed  开启元素固定定位
+                    sticky  开启元素粘滞定位
+
+                 - 固定定位
+                     - position: fixed
+                     - 固定定位也是一种绝对定位，所以固定定位的大部分特点和绝对定位一样
+                        唯一不同的是：固定定位永远参照于浏览器的 视口 进行定位
+                        固定定位的元素不会随着滚动条滚动
+
+
+
+
+        */
+            position: fixed;
+            left: 0px;
+            top: 0px;
+        }
+
+        .box3{
+            width: 200px;
+            height: 200px;
+            background-color: #811899;
+        }
+        .box4{
+            width: 500px;
+            height: 500px;
+            background-color: #11a899;
+            /*position: relative;*/
+        }
+
+        .box5{
+            width: 300px;
+            height: 300px;
+            background-color: #91a899;
+            position: relative;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+<div class="box1">1</div>
+<div class="box4">
+    4
+    <div class="box5">
+        5
+        <div class="box2">2</div>
+    </div>
+</div>
+<div class="box3">3</div>
+</body>
+</html>

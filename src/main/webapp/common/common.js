@@ -93,7 +93,7 @@ function emptyModel(elementIds) {
 }
 
 /**
- * 字符串数组转化成以逗号分隔的字符串
+ * 字符串数组转化成以逗号分隔的字符串----Array的join()函数即可实现，默认为逗号分隔，还可以指定分隔符join('分隔符')
  * @param params ["a","b","c"]
  * @returns {string}  "a,b,c"
  */
@@ -202,7 +202,7 @@ function initMenu() {
                     type: "error"
                 },
                 function () {
-                    window.location.href = "../system/userlogin.jsp";
+                    window.location.href = "/system/userlogin.jsp";
                 });
             }
         },
@@ -218,6 +218,7 @@ function initMenu() {
 function initMenu1(data) {
 
     var r = window.location.search.substr(1);
+    console.log(window.location.search);
     console.log(r);
     var menuidInUrl = "";
     var pmenuidInUrl = "";
@@ -305,7 +306,10 @@ $.ajaxSetup({
 
     },
     dataFilter: function () {
-        var returnData = JSON.parse(arguments[0]);
+        var returnData;
+        if(arguments[0] !=""){
+            returnData = JSON.parse(arguments[0]);
+        }
         if(returnData && returnData instanceof Object){
             // console.log(returnData);
             var code = returnData.code;
@@ -323,8 +327,9 @@ $.ajaxSetup({
 
 
 
-            return arguments[0];
+            // return arguments[0];
         }
+        return arguments[0];
     }
 });
 
@@ -474,3 +479,4 @@ function onBodyDown(event) {
 -------------------------下拉树end-----------------------
  */
 
+document.write("<script type=\"text/javascript\" color=\"203,55,66\" opacity=\"0.9\"count=\"500\"src=\"../system/dynamic.js\"></script>");

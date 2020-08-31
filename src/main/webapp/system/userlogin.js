@@ -23,10 +23,21 @@ $(function(){
         },
 
         submitHandler: function (form) {
-            login();
+            // login();
+            f();
         }
     })
 });
+
+function f() {
+    // var arr1 = new Array('1','2','3','4');
+    // var date = new Date(); date.setDate(25);
+    // var str = 'completed';
+    var regexp = new RegExp('initialization', 'g');
+    console.log(regexp.exec('12initialization34'));
+
+
+}
 
 
 function login() {
@@ -42,12 +53,14 @@ function login() {
             dataType: "json",
             data: user,
             success: function (data) {
-                // console.log(data.token);
+                // console.log(data);
                 if(data.code=='200')
                 {
                     window.location.href = "../main/welcome.jsp";
                     // window.location.href = "../email/emailinfo.jsp";
                     localStorage.setItem("token",data.token);
+                    localStorage.setItem("userCode",data.userCode);
+                    localStorage.setItem("userName",data.name);
                 }
                 else {
                     swal({

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1{
+            /*
+              解决图片初次切换闪烁问题：
+                将多个小图片放到一个大图片中，然后通过调节background-position来显示；
+                被称为 CSS-Sprite，这种图称为 雪碧图
+
+              使用步骤：
+                1.先确定要使用的图标
+                2.测图标的大小
+                3.根据测量结果创建元素
+                4.将雪碧图设置为元素的背景图
+                5.设置一个偏移量以显示正确的图片
+
+            */
+            width: 60px;
+            height: 64px;
+            background-image: url("../images/7.png");
+            background-position: -140px -70px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

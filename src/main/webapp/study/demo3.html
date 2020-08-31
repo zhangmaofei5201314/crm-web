@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/lib/bootstrap.min.css">
+    <style type="text/css">
+        .container{
+            background: pink;
+        }
+        div[class|=col]{/*选择器的一种*/
+            border: 1px solid;
+        }
+        li{
+            background: blue;
+            color: red;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+            border: 10px solid gold;
+            border-radius: 50%;
+            box-shadow: 0px 0px 0px 10px;
+            margin: 10px;
+        }
+        div::before {
+            background-color: green;
+            height: 50%;
+            width: 50%;
+            border-radius: 50%;
+            display: block;
+            content: '';
+            position: relative;
+            top: 25%;
+            left: 25%;
+        }
+        div::after {
+            background-color: sandybrown;
+            height: 80%;
+            width: 80%;
+            border-radius: 50%;
+            display: block;
+            content: '';
+            margin-top: -40%;
+            margin-left: 10%;
+        }
+
+
+    </style>
+    <script type="text/javascript">
+        //计算
+        function fn1() {
+            var input = document.getElementById("input");
+            var num=input.value;
+            var span = document.getElementById("span");
+            if(isNaN(num)){
+                span.innerHTML = "请输入数字";
+            }else{
+                span.innerHTML=num*num;
+            }
+        }
+        //进度条
+        function jdtiao (i) {
+            document.getElementById("jdt").style='width: '+5*i/3+'%';
+        }
+
+        //通过消耗cpu来等待
+        function sleep(numberMillis) {
+            var now = new Date();
+            var exitTime = now.getTime() + numberMillis;
+            while (true) {
+                now = new Date();
+                if (now.getTime() > exitTime)
+                    return;
+            }
+        }
+
+        var int=self.setInterval("clock()",1000);
+
+        function start() {
+            clearInterval(int);
+            int = setInterval("clock()",1000);
+        }
+
+        function clock()
+        {
+            var d=new Date();
+            var t=d.toLocaleTimeString();
+            var m=d.getSeconds()
+            document.getElementById("clock").value=t;
+            jdtiao(m);
+
+        }
+
+    </script>
+</head>
+<body>
+
+<div></div>
+
+    <div class="progress progress-striped zmf">
+        <div class="progress-bar progress-bar-success zmf" role="progressbar"
+             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" id="jdt"
+             >
+            <span class="sr-only">90% 完成（成功）</span>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="button" onclick="jdtiao()">开始加载</button>
+
+    <input type="text" id="clock" />
+    <button class="btn btn-primary"  onclick="int=window.clearInterval(int)">停止</button>
+    <button class="btn btn-primary"  onclick="start()">开始</button>
+
+</body>
+<script src="../assets/js/lib/jquery.min.js"></script>
+<script src="../assets/js/lib/bootstrap.min.js"></script>
+</html>

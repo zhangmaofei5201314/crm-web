@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电影卡片</title>
+    <link rel="stylesheet" href="../06_font&backgroud/fa/css/all.css">
+    <style type="text/css">
+        body {
+            font: 12px Helvetica, Arial, sans-serif;
+            line-height: 1;
+        }
+        .box-hover{
+            width: 200px;
+            height: 50px;
+            margin: 0 auto;
+            border: #ac0013 solid 20px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+
+
+        .outer {
+            width: 660px;
+            /*height: 230px;*/
+            height: 0px;
+            overflow: hidden;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            /*transition: height 0.5s
+               设置渐变效果
+               当高度发生变化时，要花费0.5秒完成加载
+            */
+            transition: height 0.5s;
+        }
+
+        .box-hover:hover +.outer,
+        .outer:hover{
+            height: 230px;
+        }
+        img {
+            width: 100px;
+        }
+
+        .m-detile, .img-div, .open-soft {
+            float: left;
+            padding: 0 10px;
+        }
+
+        .p-from {
+            padding-left: 10px;
+            padding-top: 10px;
+            color: #ccc;
+        }
+
+        .c-o {
+            color: orange;
+        }
+        .m-title{
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        .movie-a{
+            text-decoration: none;
+            color: #669;
+        }
+        .open-soft{
+            position: relative;
+            left: 75px;
+        }
+        .m-b{
+            margin-bottom: 15px;
+        }
+        .a-div{
+            /*color: #669;*/
+        }
+        .a-div a:hover{
+            color: #ffffff;
+            background: #37a;
+        }
+        .d-c{
+            color: #9b9b9b;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+<div class="box-hover">鼠标移入</div>
+<div class="outer">
+    <p class="p-from">来自：豆瓣电影</p>
+    <div class="contentDiv">
+        <div class="img-div">
+            <img src="../images/8.webp">
+        </div>
+
+        <div class="m-detile">
+            <div class="m-title a-div">
+                <a class="movie-a" href="javascript:;">
+                    <span class="fas c-o">&#xf144;</span>
+                    肖申克的救赎 The Shawshank Redemption
+                </a>
+            </div>
+            <div>
+                <span class="fas c-o">&#xf005;</span>
+                <span class="fas c-o">&#xf005;</span>
+                <span class="fas c-o">&#xf005;</span>
+                <span class="fas c-o">&#xf005;</span>
+                <span class="fas c-o">&#xf005;</span>
+                <span class="">9.7 (20645911人评价)</span>
+            </div>
+            <p>导演: 弗兰克·德拉邦特</p>
+            <p>主演: 蒂姆·罗宾斯 / 摩根·弗里曼 / 鲍勃·冈顿</p>
+            <p>类型: 犯罪 / 剧情</p>
+            <p>制片国家/地区: 美国</p>
+            <p>年份：1994</p>
+        </div>
+
+        <div class="open-soft">
+            <div class="m-b d-c">播放全片</div>
+            <div class="m-b a-div">
+                <a href="javascript:;" class="movie-a"><span class="fas c-o">&#xf144;</span> 爱奇艺视频</a>
+            </div>
+            <div class="m-b a-div">
+                <a href="javascript:;" class="movie-a"><span class="fas c-o">&#xf144;</span> 优酷视频</a>
+            </div>
+            <div class="m-b a-div">
+                <a href="javascript:;" class="movie-a"><span class="fas c-o">&#xf144;</span> 腾讯视频</a>
+            </div>
+            <div class="m-b a-div">
+                <a href="javascript:;" class="movie-a"><span class="fas c-o">&#xf056;</span> 更多</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

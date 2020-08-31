@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        /*
+         交集选择器
+            作用，选中同时复合多个条件的元素
+            语法，选择器1选择器2选择器n{}
+            注意，有元素选择器，必须以元素选择器开头
+        */
+        div.red{
+            font-size: 30px;
+        }
+        /*
+         选择器分组（并集选择器）
+          作用，同时选中多个选择器对应的元素
+          语法，选择器1,选择器2,选择器n{}
+        */
+        h1,span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="red">啊！大海，全是水。</div>
+    <p class="red">啊！沙漠，全是土。</p>
+
+    <h1>英</h1>
+    <span>拼</span>
+</body>
+</html>

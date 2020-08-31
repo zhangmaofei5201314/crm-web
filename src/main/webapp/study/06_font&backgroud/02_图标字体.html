@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./fa/css/all.css">
+    <style>
+
+
+            /*
+              图标字体
+                将图片设置为字体，通过font-face引入
+
+              fontawesome使用
+
+                1.下载https://fontawesome.com
+                2.解压
+                3.将css和webfonts移动到项目中
+                4.将all.css引入
+                5.使用图标字体
+                   直接通过类名来使用图标字体
+                   <div class="fas fa-bell"></div>
+            */
+
+        li{
+            list-style: none;
+        }
+        /*
+            通过伪类设置图标元素
+              1.找到要设置图标的元素，用before和after选中
+              2.在content中设置字体的编码，用\转义
+                 文档 https://fontawesome.com/icons?d=gallery&s=brands
+
+              3.设置字体样式
+                 font-family: 'Font Awesome 5 Free','Font Awesome 5 Brands';
+        */
+        li:before{
+            content: '\f1d0';
+            font-family: 'Font Awesome 5 Free','Font Awesome 5 Brands';
+            color: #1fc231;
+            margin-right: 10px;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <div class="fas fa-bell"></div>
+    <div class="fab fa-accessible-icon" style="font-size: 100px;color: #1fc231"></div>
+
+    <ul>
+        <li>空山不见人</li>
+        <li>但闻人语响</li>
+        <li>返景入深林</li>
+        <li>复照青苔上</li>
+    </ul>
+    <!--
+        通过实体来使用字体图标
+          &#X图标编码;
+    -->
+    <span class="fab" style="font-size: 100px;color: blue">&#xf642;</span>
+
+</body>
+</html>
